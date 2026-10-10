@@ -1,94 +1,202 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icunai's Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #eef2f6;
+    --grid: #d3dce6;
+    --ink: #1c2330;
+    --muted: #4d596b;
+    --marker: #d3322b;
+    --highlight: #f4d84a;
+    --pencil: #35608f;
+    --card: #fbfcfd;
+    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #151a22;
+      --grid: #232b37;
+      --ink: #e8edf3;
+      --muted: #a2adbd;
+      --marker: #ff5a4f;
+      --highlight: #8a7a1c;
+      --pencil: #7fa8d6;
+      --card: #1c232e;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
+  a { color: var(--pencil); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+  a:hover { color: var(--marker); }
+  a:focus-visible { outline: 3px solid var(--marker); outline-offset: 3px; border-radius: 2px; }
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>ICUNAI's Very own site.</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="ICUNAI" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://iniciocuna.github.io/" />
-<meta property="og:url" content="https://iniciocuna.github.io/" />
-<meta property="og:site_name" content="ICUNAI" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="ICUNAI" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"ICUNAI","name":"ICUNAI","url":"https://iniciocuna.github.io/"}</script>
-<!-- End Jekyll SEO tag -->
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(3.5rem, 14vw, 6.5rem);
+    line-height: 0.95;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.03em;
+  }
+  .scribble { display: block; width: min(18rem, 70%); height: 18px; color: var(--marker); margin-bottom: 1.5rem; }
+  .intro { font-size: 1.25rem; margin: 0 0 0.25rem; }
+  .status { color: var(--muted); margin: 0; }
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=a7ebad21eff3b4198d48b7d6b206b1b32b17ac0d">
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+  section {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 6px 14px 6px 14px;
+    padding: 1.25rem 1.5rem 1.4rem;
+    margin-top: 2rem;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 0.75rem;
+    display: inline;
+    background: linear-gradient(transparent 58%, var(--highlight) 58%);
+    padding: 0 0.15em;
+  }
+  section > h2 + * { margin-top: 0.9rem; }
+  p { margin: 0 0 0.75rem; }
+  ul { margin: 0; padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  li::marker { color: var(--marker); }
+  .note { color: var(--muted); }
 
-<!-- Setup Google Analytics -->
+  .bars { list-style: none; padding: 0; }
+  .bars li { margin-bottom: 1rem; }
+  .bar-label { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 0.3rem; }
+  .bar { height: 14px; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; background: var(--paper); }
+  .bar span { display: block; height: 100%; background: var(--pencil); }
 
+  .facts li { padding-left: 0.2rem; }
+  .pronouns { font-family: var(--display); font-weight: 800; font-size: 1.5rem; margin: 0; }
 
+  footer { margin-top: 2.5rem; color: var(--muted); font-size: 0.95rem; }
 
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+  @media (prefers-reduced-motion: no-preference) {
+    .scribble path { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 0.9s 0.2s ease-out forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+  }
+  @media (max-width: 480px) {
+    section { padding: 1rem 1.1rem 1.2rem; box-shadow: 4px 4px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Hello!</h1>
+    <svg class="scribble" viewBox="0 0 300 18" fill="none" aria-hidden="true">
+      <path d="M3 11 C 40 2, 70 16, 110 8 S 190 3, 230 10 S 280 12, 297 6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <p class="intro">So this is my portfolio!</p>
+    <p class="status">I'm currently working on:</p>
+  </header>
 
-<!-- end custom head snippets -->
+  <section id="working-on">
+    <h2>APTP</h2>
+    <p>A Roblox game, inspired by many others. Still a Work In Progress though.</p>
+    <ul>
+      <li><a href="https://www.roblox.com/games/14865421303/A-P-T-P" target="_blank" rel="noopener">APTP Game Link</a></li>
+    </ul>
+  </section>
 
-  </head>
-  <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      
-      <h1><a href="https://iniciocuna.github.io/">Hello, this is my portfolio.</a></h1>
-      
+  <section id="community">
+    <h2>Community</h2>
+    <p>My current status on Roblox is just a small community. Open for new members!</p>
+    <ul>
+      <li><a href="https://www.roblox.com/communities/32792084/INI-Studs" target="_blank" rel="noopener">INI Studs</a>: the Roblox Community</li>
+      <li><a href="https://discord.gg/PJ4NmBzxF" target="_blank" rel="noopener">Join the Discord</a>: the Discord Community</li>
+    </ul>
+    <p class="note" style="margin-top:0.9rem">Other games on the Community that I created are just experiments, testing my skills. Mostly just ignore those, nothing much there.</p>
+  </section>
 
-      <p>I’m currently working on:
+  <section id="socials">
+    <h2>Socials</h2>
+    <p>I also sometimes post... on my socials. Instagram is the most abandoned, so don't expect anything there.</p>
+    <p>I always try my best.</p>
+  </section>
 
-- APTP, a roblox game, inspirated in many others, Still a Work In Progress though
-- APTP Game Link: https://www.roblox.com/games/14865421303/A-P-T-P
+  <section id="open-source">
+    <h2>Open Source and Modding</h2>
+    <p>I really like OpenSource files. Although I might not post anything, I want to help others out with APIs that I created.</p>
+    <p>I'm into modding games. I'm trying to make CGC (Community Generated Content) available in most of my projects.</p>
+  </section>
 
-My current status on Roblox is just a small community, Open for new members!
+  <section id="contact">
+    <h2>How to reach me?</h2>
+    <ul>
+      <li>Message me, in any of my socials</li>
+      <li>Also don't forget to mention me, because sometimes I don't hear the notification...</li>
+    </ul>
+  </section>
 
-- <a href="https://www.roblox.com/communities/32792084/INI-Studs">https://www.roblox.com/communities/32792084/INI-Studs</a>  The Roblox Community
-- <a href="https://discord.gg/PJ4NmBzxF">https://discord.gg/PJ4NmBzxF</a>  The Discord Community
+  <section id="art">
+    <h2>Art</h2>
+    <p>I also draw, traditionally.</p>
+  </section>
 
-I also sometimes post... on my Socials, Instagram is the most abandoned so don't expect anything there.
+  <section id="learning">
+    <h2>Learning</h2>
+    <ul class="bars">
+      <li>
+        <div class="bar-label"><span>C++</span><span>Dominated: 9%</span></div>
+        <div class="bar" role="img" aria-label="C++ 9 percent"><span style="width:9%"></span></div>
+      </li>
+      <li>
+        <div class="bar-label"><span>Python</span><span>Dominated: 55%</span></div>
+        <div class="bar" role="img" aria-label="Python 55 percent"><span style="width:55%"></span></div>
+      </li>
+    </ul>
+    <p>I would love to hear tips on those!</p>
+  </section>
 
-I always try my best.
-Other games on The Community that i created are just Experiments, Testing my skills.
-Mostly just ignore those, Nothing much there.
+  <section id="pronouns">
+    <h2>Pronouns</h2>
+    <p class="pronouns">They / Them</p>
+  </section>
 
-I also really like OpenSource files, although i might not post anything, I want to help others out with API that i created.
-I'm into Modding Games, I'm trying to make so CGC (Community Generated Content) is available on Most of my projects.
+  <section id="fun-facts">
+    <h2>Fun Facts</h2>
+    <ul class="facts">
+      <li>Not a native English speaker!</li>
+      <li>Doesn't like too much talking on VC</li>
+      <li>Likes art</li>
+      <li>Ultrakill fan!</li>
+      <li>Loves having something to do, of my interest</li>
+      <li>Furry</li>
+      <li>Very deep into tech. Arch Linux and Windows user</li>
+      <li>Neutral about AI</li>
+      <li>I forget about things in a second...</li>
+    </ul>
+  </section>
 
-How to reach me?
-- Message me, in Any of my socials
-- Also don't forget to mention me, because sometimes I don't hear the notification..
-
-I also draw, Traditionally.
-
-Learning:
-- C++ (Dominated: 9%)
-- Python (Dominated: 55%)
-
-I would love to hear tips on those!
-
-Pronouns:
-They / Them
-
-Fun Facts:
-- Not a native English speaker!
-- Doesn't like too much talking on VC
-- Likes Art.
-- Ultrakill Fan
-- Loves having to do something, of my interest
-- Furry
-- Very deep into Tech, Arch Linux and Windows user
-- Neutral against AI
-- I forget about things in the second....
-</p>
-
-
-      
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
-  </body>
+  <footer>Thanks for stopping by.</footer>
+</main>
+</body>
 </html>
