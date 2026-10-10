@@ -4,121 +4,64 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Icunai's Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #eef2f6;
-    --grid: #d3dce6;
-    --ink: #1c2330;
-    --muted: #4d596b;
-    --marker: #d3322b;
-    --highlight: #f4d84a;
-    --pencil: #35608f;
-    --card: #fbfcfd;
-    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-    --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #151a22;
-      --grid: #232b37;
-      --ink: #e8edf3;
-      --muted: #a2adbd;
-      --marker: #ff5a4f;
-      --highlight: #8a7a1c;
-      --pencil: #7fa8d6;
-      --card: #1c232e;
-    }
+    --bg: #0d0d0e;
+    --box: #1f2022;
+    --line: #2f3135;
+    --text: #f2f2f2;
+    --muted: #a3a6ab;
+    --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background-color: var(--paper);
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 28px 28px;
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 1.0625rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 1rem;
     line-height: 1.6;
   }
-  main { max-width: 44rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
-  a { color: var(--pencil); text-underline-offset: 3px; text-decoration-thickness: 2px; }
-  a:hover { color: var(--marker); }
-  a:focus-visible { outline: 3px solid var(--marker); outline-offset: 3px; border-radius: 2px; }
-
-  h1 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(3.5rem, 14vw, 6.5rem);
-    line-height: 0.95;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.03em;
-  }
-  .scribble { display: block; width: min(18rem, 70%); height: 18px; color: var(--marker); margin-bottom: 1.5rem; }
-  .intro { font-size: 1.25rem; margin: 0 0 0.25rem; }
-  .status { color: var(--muted); margin: 0; }
+  main { max-width: 40rem; margin: 0 auto; padding: 3.5rem 1.25rem 4rem; }
+  h1 { font-size: 2.75rem; line-height: 1.1; margin: 0 0 0.75rem; font-weight: 700; }
+  header p { margin: 0 0 0.25rem; }
+  .muted { color: var(--muted); }
 
   section {
-    background: var(--card);
-    border: 2px solid var(--ink);
-    border-radius: 6px 14px 6px 14px;
-    padding: 1.25rem 1.5rem 1.4rem;
-    margin-top: 2rem;
-    box-shadow: 5px 5px 0 var(--ink);
+    background: var(--box);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin-top: 1rem;
   }
-  h2 {
-    font-family: var(--display);
-    font-size: 1.5rem;
-    line-height: 1.2;
-    margin: 0 0 0.75rem;
-    display: inline;
-    background: linear-gradient(transparent 58%, var(--highlight) 58%);
-    padding: 0 0.15em;
-  }
-  section > h2 + * { margin-top: 0.9rem; }
-  p { margin: 0 0 0.75rem; }
-  ul { margin: 0; padding-left: 1.25rem; }
-  li { margin-bottom: 0.4rem; }
-  li::marker { color: var(--marker); }
-  .note { color: var(--muted); }
+  h2 { font-size: 1.15rem; margin: 0 0 0.6rem; font-weight: 600; }
+  p { margin: 0 0 0.6rem; }
+  p:last-child, ul:last-child { margin-bottom: 0; }
+  ul { margin: 0; padding-left: 1.2rem; }
+  li { margin-bottom: 0.3rem; }
+
+  a { color: var(--text); text-underline-offset: 3px; }
+  a:hover { color: var(--muted); }
+  a:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 2px; }
 
   .bars { list-style: none; padding: 0; }
-  .bars li { margin-bottom: 1rem; }
-  .bar-label { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 0.3rem; }
-  .bar { height: 14px; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; background: var(--paper); }
-  .bar span { display: block; height: 100%; background: var(--pencil); }
+  .bars li { margin-bottom: 0.9rem; }
+  .bar-label { display: flex; justify-content: space-between; margin-bottom: 0.3rem; }
+  .bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+  .bar span { display: block; height: 100%; background: var(--text); }
 
-  .facts li { padding-left: 0.2rem; }
-  .pronouns { font-family: var(--display); font-weight: 800; font-size: 1.5rem; margin: 0; }
-
-  footer { margin-top: 2.5rem; color: var(--muted); font-size: 0.95rem; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .scribble path { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 0.9s 0.2s ease-out forwards; }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-  }
-  @media (max-width: 480px) {
-    section { padding: 1rem 1.1rem 1.2rem; box-shadow: 4px 4px 0 var(--ink); }
-  }
+  footer { margin-top: 2rem; color: var(--muted); font-size: 0.9rem; }
 </style>
 </head>
 <body>
 <main>
   <header>
     <h1>Hello!</h1>
-    <svg class="scribble" viewBox="0 0 300 18" fill="none" aria-hidden="true">
-      <path d="M3 11 C 40 2, 70 16, 110 8 S 190 3, 230 10 S 280 12, 297 6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-    </svg>
-    <p class="intro">So this is my portfolio!</p>
-    <p class="status">I'm currently working on:</p>
+    <p>So this is my portfolio!</p>
+    <p class="muted">I'm currently working on:</p>
   </header>
 
-  <section id="working-on">
+  <section>
     <h2>APTP</h2>
     <p>A Roblox game, inspired by many others. Still a Work In Progress though.</p>
     <ul>
@@ -126,29 +69,29 @@
     </ul>
   </section>
 
-  <section id="community">
+  <section>
     <h2>Community</h2>
     <p>My current status on Roblox is just a small community. Open for new members!</p>
     <ul>
       <li><a href="https://www.roblox.com/communities/32792084/INI-Studs" target="_blank" rel="noopener">INI Studs</a>: the Roblox Community</li>
       <li><a href="https://discord.gg/PJ4NmBzxF" target="_blank" rel="noopener">Join the Discord</a>: the Discord Community</li>
     </ul>
-    <p class="note" style="margin-top:0.9rem">Other games on the Community that I created are just experiments, testing my skills. Mostly just ignore those, nothing much there.</p>
+    <p class="muted" style="margin-top:0.8rem">Other games on the Community that I created are just experiments, testing my skills. Mostly just ignore those, nothing much there.</p>
   </section>
 
-  <section id="socials">
+  <section>
     <h2>Socials</h2>
     <p>I also sometimes post... on my socials. Instagram is the most abandoned, so don't expect anything there.</p>
     <p>I always try my best.</p>
   </section>
 
-  <section id="open-source">
+  <section>
     <h2>Open Source and Modding</h2>
     <p>I really like OpenSource files. Although I might not post anything, I want to help others out with APIs that I created.</p>
     <p>I'm into modding games. I'm trying to make CGC (Community Generated Content) available in most of my projects.</p>
   </section>
 
-  <section id="contact">
+  <section>
     <h2>How to reach me?</h2>
     <ul>
       <li>Message me, in any of my socials</li>
@@ -156,34 +99,34 @@
     </ul>
   </section>
 
-  <section id="art">
+  <section>
     <h2>Art</h2>
     <p>I also draw, traditionally.</p>
   </section>
 
-  <section id="learning">
+  <section>
     <h2>Learning</h2>
     <ul class="bars">
       <li>
-        <div class="bar-label"><span>C++</span><span>Dominated: 9%</span></div>
+        <div class="bar-label"><span>C++</span><span class="muted">Dominated: 9%</span></div>
         <div class="bar" role="img" aria-label="C++ 9 percent"><span style="width:9%"></span></div>
       </li>
       <li>
-        <div class="bar-label"><span>Python</span><span>Dominated: 55%</span></div>
+        <div class="bar-label"><span>Python</span><span class="muted">Dominated: 55%</span></div>
         <div class="bar" role="img" aria-label="Python 55 percent"><span style="width:55%"></span></div>
       </li>
     </ul>
     <p>I would love to hear tips on those!</p>
   </section>
 
-  <section id="pronouns">
+  <section>
     <h2>Pronouns</h2>
-    <p class="pronouns">They / Them</p>
+    <p>They / Them</p>
   </section>
 
-  <section id="fun-facts">
+  <section>
     <h2>Fun Facts</h2>
-    <ul class="facts">
+    <ul>
       <li>Not a native English speaker!</li>
       <li>Doesn't like too much talking on VC</li>
       <li>Likes art</li>
